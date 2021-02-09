@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generational Wealth Analysis API</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style >
+        body {
+            background-color:white;
+            }
+        .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+            background-color: lightgrey;
+            color: black
+            }
+        td {
+            font-size : 11px
+        }
+        th {
+            width : 250px
+        }
+
+    </style>
+    </head>
+<body>
+     <div class="container-fluid">
+        <div class="container"></div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <h2><strong>Generational Wealth Analysis API</strong></h2><hr>
+                    <p>Welcome to the Generational Wealth Analysis API. The data in this API originated and has been curated from <a href="https://geofred.stlouisfed.org/">GeoFRED</a> (Geographical Economic Data – Federal Reserve Bank of St Louis). 
+                        Please refer to the examples on this page on how to make calls to the Generational Wealth Analysis API.</p></br> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10">
+                    <table border="1" class="table-striped table-sm table-responsive-sm" style="width: 100%">
+                        <tr>
+                          <th>API Call</th>
+                          <th>Syntax</th>
+                          <th>Example</th>
+                        </tr>
+                        <tr>
+                          <td>All annual economic data for all states.</td>
+                          <td>http://127.0.0.1:5000/api/v1.0/us-state-data</td>
+                          <td ><a href="http://127.0.0.1:5000/api/v1.0/us-state-data">http://127.0.0.1:5000/api/v1.0/us-state-data</a></td>
+                        </tr>
+                        <tr>
+                            <td>All annual economic data for a specific state.</td>
+                            <td>http://127.0.0.1:5000/api/v1.0/state/[State Name]</td>
+                            <td><a href="http://127.0.0.1:5000/api/v1.0/state/California">http://127.0.0.1:5000/api/v1.0/state/California</a></td>
+                        </tr>
+                        <tr>
+                            <td>All state economic data for a specific year.</td>
+                            <td>http://127.0.0.1:5000/api/v1.0/year/[Year]</td>
+                            <td ><a href="http://127.0.0.1:5000/api/v1.0/year/2013">http://127.0.0.1:5000/api/v1.0/year/2013</a></td>
+                        </tr>
+                        <tr>
+                            <td>Economic data for a specific year and state.</td>
+                            <td>http://127.0.0.1:5000/api/v1.0/state-year/[State Name]/[Year]</td>
+                            <td ><a href="http://127.0.0.1:5000/api/v1.0/state-year/New York/2015">http://127.0.0.1:5000/api/v1.0/state-year/New York/2015</a></td>
+                        </tr>
+                        <tr>
+                            <td>All State economic data by range of years.</td>
+                            <td>http://127.0.0.1:5000/api/v1.0/year-range/[Start Year]/[Last Year]</td>
+                            <td ><a href="http://127.0.0.1:5000/api/v1.0/year-range/2014/2018">http://127.0.0.1:5000/api/v1.0/year-range/2014/2018</a></td>
+                        </tr>
+                        <tr>
+                            <td>Economic data for a specified state by range of years.</td>
+                            <td>http://127.0.0.1:5000/api/v1.0/state-year-range/[State Name]/[Start Year]/[Last Year]</td>
+                            <td ><a href="http://127.0.0.1:5000/api/v1.0/state-year-range/Colorado/2011/2019">http://127.0.0.1:5000/api/v1.0/state-year-range/Colorado/2011/2019</a></td>
+                        </tr>
+                        <tr>
+                            <td>Distinct states in the data set</td>
+                            <td>http://127.0.0.1:5000/api/v1.0/distinct_state</td>
+                            <td ><a href="http://127.0.0.1:5000/api/v1.0/distinct_state">http://127.0.0.1:5000/api/v1.0/distinct_state</a></td>
+                        </tr>
+                        <tr>
+                            <td>Distinct years in the data set</td>
+                            <td>http://127.0.0.1:5000/api/v1.0/distinct_year</td>
+                            <td ><a href="http://127.0.0.1:5000/api/v1.0/distinct_year">http://127.0.0.1:5000/api/v1.0/distinct_year</a></td>
+                        </tr>
+                      </table>
+                </div>
+            </div>          
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Homeownership Impact Project</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <a class="navbar-brand" href="index.html">Homeownership Impact Project</a>   
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>   
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">    
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Links
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="index.html">Pair Plots Analysis</a>
+            <a class="dropdown-item" href="education.html">Education Analysis</a>
+            <a class="dropdown-item" href="lineplot.html">State Analysis</a>
+            <a class="dropdown-item" href="boxplots.html">Box Plot Analysis</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>Educational attainment, income, and homeownership</h1>
+        <p>The figures below show the relationship between educational attainment (percent of population
+           in each state with a high school diploma and bachelor's degree), home ownership rate, and per capita 
+           personal income.
+        </p>
+        <br>
+        <p>Press play to see how educational attainment has improved by state over the time period we evaluated.
+       </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="bubble_anim"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <br><br>
+        <p>To see metrics for a specific year, please select from the list:</p>
+        <br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="well">
+          <h5>Year:</h5>
+          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="bar_ed"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div>
+          <br><br>
+          <p class="tab">The bar height represents total educational attainment for each state (HS diploma plus 
+            bachelor's degree rates) and the blue line represents the homeownership rate. 
+          </p>
+          <br>
+          <p class="tab">We found that in many cases where educational attainment is high homeownership is low 
+            and vice versa. This could be due to urban vs. rural populations, housing availability, and student/transient populations  
+            (WV vs. DC)
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="bubble_ed"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div>
+          <br><br>
+          <p class="tab">Bubbles farther to the upper right represent 
+            higher educational attainment. Bubble size comes from homeownership rate, and color comes from 
+            per capita personal income (scale at right). 
+          </p>
+          <br>
+          <p class="tab">As expected higher educational attainment correlates with higher per capita personal income, 
+            but does not correlate with homeownership.
+          </p>
+          <br>
+          <p class="tab">The maps below help to illustrate our conclusion. Looking at the first two maps you can see 
+            that education and homeownership do not necessarily correlate - areas with lower educational attainment (Mississippi 
+            and West Virginia) are among the highest in rates of homeownership. But when we compare the educational attainment map 
+            to the median household income map a clear correlation emerges. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="bubble_anim"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="homeMap"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="eduMap"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="hhIncMap"></div>
+      </div>
+    </div>    
+
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="./static/js/map_ed.js"></script>
+  
+</body>
+
+</html>
